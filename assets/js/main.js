@@ -96,7 +96,7 @@ for (let i = 1; i <= 25; i++) {
                     <td><small class="text-bg-success rounded-1 px-1">active</small></td>
                     <td>Member</td>
                     <td>
-                      <button class="btn btn-warning mb-1"> <i class="bi bi-pencil"></i> </button>
+                      <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#userFormModal"> <i class="bi bi-pencil"></i> </button>
                       <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> </button>
                     </td>
                 `;
