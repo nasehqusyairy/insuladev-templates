@@ -104,7 +104,7 @@ for (let i = 1; i <= 25; i++) {
 }
 
 // DataTables
-new DataTable('#table');
+table = new DataTable('#table');
 
 // Select2
 $('#userFormModal select').select2({
