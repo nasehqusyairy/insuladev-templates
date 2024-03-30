@@ -345,7 +345,7 @@
   <!-- Main Script -->
   <script src="./assets/js/blank.js"></script>
   <script>
-    // Buat agar tombol verify pada step1 hanya akan aktif jika input email dan otp pada step1 tidak kosong
+    // Make sure the verify button in step1 will only be active if the email and otp input in step1 are not empty
     const commitotpField = document.getElementById('commitotp');
     const verifyButton = document.querySelector('#step1 button[type="submit"]');
     commitotpField.addEventListener('keyup', () => {
@@ -356,7 +356,7 @@
       }
     });
 
-    // Buat agar tombol verify pada step2 hanya akan aktif jika input email dan otp pada step2 tidak kosong
+    // Make sure the verify button in step2 will only be active if the email and otp input in step1 are not empty
     const newemailField = document.getElementById('newemail');
     const verifyotpField = document.getElementById('verifyotp');
     const verifyButton2 = document.querySelector('#step2 button[type="submit"]');
