@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="./assets/css/main.min.css">
   <link rel="shortcut icon" href="./assets/img/LOGO BULAT.png">
 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   <!-- Theme Color -->
   <!-- <meta name="theme-color" content="#008080"> -->
   <meta name="theme-color" content="#0d6efd">
@@ -261,6 +271,77 @@
     <!-- MAIN -->
     <main class="bd-main p-3 bg-light">
 
+      <form action="">
+
+        <div class="row flex-lg-row-reverse align-items-center">
+          <div class="col-12 col-lg-4">
+            <div class="card mb-3">
+              <div class="card-body">
+                <img src="./assets/img/LOGO_LIGHT MODE.png" alt="PROFILE PICTURE" class="img-fluid img-thumbnail mb-3">
+                <label for="image" class="form-label">Profile Picture</label>
+                <input class="form-control" type="file" id="image" name="image">
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">More</h5>
+                <ul>
+                  <li><a href="#">Change Email</a></li>
+                  <li> <a href="#">Reset Password</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" value="johndoe@example.com" disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="country" class="form-label">Country</label>
+                  <select class="form-select" id="country" name="country">
+                    <option value="" disabled selected>Select...</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="John Doe">
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="phone-addon">+62</span>
+                    <input type="text" class="form-control" id="phone" name="phone" value="81234567890">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="institution" class="form-label">Institution</label>
+                  <input type="text" class="form-control" id="institution" name="institution"
+                    value="Islamic University State of Maulana Malik Ibrahim Malang">
+                </div>
+                <div class="mb-3">
+                  <label for="gender" class="form-label">Gender</label>
+                  <select class="form-select" id="gender" name="gender">
+                    <option value="">Select...</option>
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="d-grid d-lg-block gap-2">
+                  <button class="btn btn-primary">Save</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </form>
+
       <!-- <div class="bg-danger" style="height: 100vh;"></div> -->
     </main>
     <!-- END OF MAIN -->
@@ -303,6 +384,49 @@
 
   <!-- Main Script -->
   <script src="./assets/js/blank.js"></script>
+  <script>
+    const url = 'https://restcountries.com/v3.1/all?fields=name,cca2,idd'
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+
+        const transformedData = [];
+
+        data.forEach(entry => {
+          entry.idd.suffixes.forEach(suffix => {
+            transformedData.push({
+              cca2: entry.cca2,
+              name: entry.name.common,
+              callingcode: entry.idd.root + suffix
+            });
+          });
+        });
+
+        transformedData.sort((a, b) => a.name.localeCompare(b.name))
+          .map(country => {
+            const option = document.createElement('option');
+            option.value = country.callingcode;
+            option.textContent = `${country.name} (${country.callingcode})`;
+            document.getElementById('country').appendChild(option);
+          });
+
+        const countrySelectField = $('#country')
+
+        countrySelectField.select2({
+          theme: 'bootstrap-5',
+          placeholder: 'Select...',
+        });
+
+        // Set default value
+        countrySelectField.val('+62').trigger('change');
+
+        // Set phone add-on onchange
+        countrySelectField.change(function () {
+          $('#phone-addon').text(this.value);
+        });
+
+      })
+  </script>
 </body>
 
 </html>
