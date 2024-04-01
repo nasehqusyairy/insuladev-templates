@@ -22,12 +22,12 @@ const barChart = new Chart(ctx1, {
     datasets: [{
       label: 'Revenue',
       data: [65, 59, 80, 81, 56, 55],
-      backgroundColor: '#0d6efd'
+      backgroundColor: '#008080'
     },
     {
       label: 'Expenses',
       data: [28, 48, 40, 19, 86, 27],
-      backgroundColor: '#0e315b'
+      backgroundColor: '#002929'
     },
     {
       label: 'Profits',
@@ -62,7 +62,7 @@ const doughnutChart = new Chart(ctx2, {
     datasets: [{
       label: 'Colors',
       data: [300, 50, 100],
-      backgroundColor: ['#0d6efd', '#0e315b', '#6c757d']
+      backgroundColor: ['#008080', '#002929', '#6c757d']
     }]
   }
 });
