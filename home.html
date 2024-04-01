@@ -30,13 +30,14 @@
   </style>
 </head>
 
-<body id="home">
+<body id="home" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -50%" tabindex="0"
+  data-bs-smooth-scroll="true">
 
   <!-- NAVBAR -->
   <div class="position-relative" style="height: 75px;">
-    <nav class="navbar navbar-expand-lg bg-white fixed-top shadow">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top shadow" id="navbar">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./home.html">
           <img src="./assets/img/LOGO_PANJANG.png" alt="" height="50" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -45,7 +46,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#myCarousel">Home</a>
             <a class="nav-link" href="#about">About</a>
             <a class="nav-link" href="#features">Features</a>
             <a class="nav-link" href="#contact">Contact</a>
@@ -173,7 +174,7 @@
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div class="feature col">
           <div
-            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
             <i class="bi bi-collection"></i>
           </div>
           <h3 class="fs-2 text-body-emphasis">Featured title</h3>
@@ -182,7 +183,7 @@
         </div>
         <div class="feature col">
           <div
-            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
             <i class="bi bi-people"></i>
           </div>
           <h3 class="fs-2 text-body-emphasis">Featured title</h3>
@@ -191,7 +192,7 @@
         </div>
         <div class="feature col">
           <div
-            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            class="px-3 py-1 rounded d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
             <i class="bi bi-toggles2"></i>
           </div>
           <h3 class="fs-2 text-body-emphasis">Featured title</h3>
